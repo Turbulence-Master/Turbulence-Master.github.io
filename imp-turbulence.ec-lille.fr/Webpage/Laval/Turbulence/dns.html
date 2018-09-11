@@ -1,0 +1,155 @@
+<html>
+
+<!-- Mirrored from imp-turbulence.ec-lille.fr/Webpage/Laval/Turbulence/dns.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 17 May 2018 14:03:13 GMT -->
+<head>
+<title> DNS of Turbulent Boundary Layer </title>
+<!-- Changed by: Jean-Philippe Laval, 15-Feb-2011 -->
+
+<meta Name="Index, Jean-Philippe Laval" Contents="Jean-Philippe Laval, Matthieu Marquillie, 
+Turbulence, Boundary Layer, Fluid Dynamics, Direct Numerical Simulation, Large Eddy Simulation, subgrid model, Fluid Mechanics, applied mathematics, LML">
+</head>
+
+
+<h2>
+<div  ALIGN=center>
+Direct Numerical Simulation (DNS) </br>  &  </br>  Large Eddy Simulation (LES) </br> 
+of </br>  Wall Bounded Turbulence </br> 
+</div>
+</h2>
+</br> </br> </br> 
+
+<h3> MFLOPS3D: Numerical Code for DNS & LES of wall bounded turbulence </h3>
+
+<div align="justify">
+
+<p> The ER2 team of Laboratoire de Mécanique de Lille is strongly involved in the study of turbulent boundary layers. In parallel to high level experimental tools, M. Marquillie and J.-P. Laval developed a numerical code devoted for DNS and LES of turbulent boundary layer flows over a smooth surface using an algorithm adapted for this type of geometries.</br>
+
+<p> The algorithm used for solving the incompressible Navier-Stokes system is similar to the one described in <a href="#marquillie2008"> Marquillie <i> et al </i> (2008)</a>.  To take into account the complex geometry of the physical domain, the partial differential operators are transformed using the mapping which has the property of following a profile at the lower wall with a flat surface at the upper wall.  Applying this mapping to the momentum and divergence equations, the modified system in the computational coordinates has to be solved in the transformed Cartesian geometry (see fig. below).</br></br>
+
+<div  ALIGN=center>
+<img ALIGN=center src="grid_B_Re600.png" height=147 width=590></br>
+Mesh in physical domain </br>
+<img ALIGN=center src="grid_A_Re600.png" height=147 width=590></br>
+Mesh in computational domain </br>
+</div>
+</br></br>
+<p> The three-dimensional Navier-Stokes equations are discretized using fourth and eight order centered finite differences in the streamwise direction. A pseudo-spectral Chebyshev-collocation method is used in the wall normal direction. The spanwise direction is assumed periodic and is discretized using a spectral Fourier expansion, the nonlinear coupling terms being computed using a conventional de-aliasing technique (3/2-rule).  The resulting 2D-Poisson equations are solved in parallel using MPI library. Implicit second-order backward Euler differencing is used for time integration, the Cartesian part of the diffusion term is taken implicitly whereas the nonlinear and metric terms (due to the mapping are evaluated using an explicit second-order Adams-Bashforth scheme. In order to ensure a divergence-free velocity field, a fractional-step method has been adapted to the present formulation of the Navier-Stokes system with coordinate transformation.</br>
+
+<p> The use of an original algorithm with a mapping of coordinate  allowing a direct resolution leads to a very efficient integration as compared to curvilinear coordinates. The code was optimized for both vectorial (NEC SX-8) and scalar (IBM Power6 & BlueGene) supercomputers. Several LES models have been implemented: the classical Smagorinsky model, the dynamic Smagorindky model and the WALE model.</br></br>
+
+<h3> DNS of converging-diverging channel flow </h3>
+
+<p> The code was used during the FP6 <a href="http://wallturb.univ-lille1.fr/">WALLTURB</a> project to perform direct numerical simulations of converging-diverging channel flows at two different Reynolds number (Re&#964;= 600 and Re&#964;= 400 at inlet). The simulation with the highest Reynolds number was done with the help of two successive  <a href="http://www.deisa.eu/science/deci/projects2007-2008/DNS-BUMP"> DEISA projects</a>  (2006-2007 and 2007-2008). Up to 160000 Cpu hours on NEC SX-8 were used in total for this simulation.</br></br>
+
+
+<h4> Databases </h4>
+
+<p> The 3D velocity and pressure fields as well as extensive statistics of the two DNS of converging-diverging channels are gathered in the <a href="http://lmlm6-62.univ-lille1.fr/db/">  LML database </a>. The statistics and coherent structures of the DNS at the lowest Reynolds number has been analyzed in detail in Marquillie et al (2008). For the two DNS, all the terms of the Reynolds Stresses equations are available in a system of coordinate parallel to the each walls. An example of turbulent kinetic energy balance is given at the lower wall in the beginning of the adverse pressure gradient region.</br>
+
+<div id="tableau">
+<table align="center" border="0" cellpadding="1" cellspacing="10" width="90%">
+	<tr align="center">
+		<td><img src="profile_Re600_balance_k_snz_wall_unit_ref_006418.png" width="456" height="312" border="0"></td>
+		<td>&nbsp;</td>
+		<td></br><img src="plot_profiles_uu_lower_color.png" width="376" height="267" border="0"></td>
+	</tr>
+	<tr align="center">
+          <td width ="292">  <font face="Verdana, Geneva, sans-serif" color="black" size="+0"> 
+            Turbulent kinetic energy balance for DNS at Re&#964;= 600 
+          </font>  </td>
+	  <td>&nbsp;</td>
+          <td width ="292"> <font face="Verdana, Geneva, sans-serif" color="black" size="+0"> 
+            Streamwise evolution of the streamwise turbulent intensity at lower wall
+          </font> </td>
+	</tr>
+</table>
+</div>
+</br></br>
+
+
+<h4> Coherent structures </h4>
+
+<p> The aim of our study on turbulent boundary layer with adverse pressure gradient (APG) is to characterize the different turbulent 
+coherent structures and to describe their organization and their interactions. Our main interest is to understand how intense
+ vortices, responsible of the well known second energy peak in APG flows, are generated and what are their scaling. An instability 
+analysis performed recently by <a href="#marquillie2011"> Marquillie <i>et al</i> (2011)</a> and
+<a href="#laval2012"> Laval <i>et al</i> (2012)</a> is able to explain the occurrence and the position of these intense vortices.</br>
+
+<div id="tableau">
+<table align="center" border="0" cellpadding="1" cellspacing="10" width="90%">
+	<tr align="center"> <td> <a href="bosse_Re600_iso_Q_streaks_bottom_all.jpg" target="_blank"><img SRC="bosse_Re600_iso_Q_streaks_bottom_all_small.jpg" height=453 width=620></a> </td> </tr>
+        <tr align="center"> <td width ="292">  <font face="Verdana, Geneva, sans-serif" color="black" size="+0"> Visualisation of low speed streaks (red) and intense vortices (blue) at the lower wall of the converging-diverging channel flow <i> </br>  (click on image to enlarge) </i> </font> </td> </tr>
+</table>
+</div>
+<br>
+
+<div id="tableau">
+<table align="center" border="0" cellpadding="1" cellspacing="10" width="90%">
+	<tr align="center"> <td> <a href="bosse_Re600_iso_Q_full_rotate.avi" target="_blank"><img SRC="bosse_Re600_iso_Q_full_rotate_small.jpg" height=227 width=570></a> </td> </tr>
+        <tr align="center"> <td width ="292">  <font face="Verdana, Geneva, sans-serif" color="black" size="+0"> Visualisation of intense vortices in a DNS of converging-diverging channel flow <i></br>  (click on image to play movie) </i> </font> </td> </tr>
+</table>
+</div>
+<br>
+
+
+<h3> LES  of converging-diverging channel flow </h3>
+
+Large Eddy Simulation of wall bounded flows is still a strong research topic as it requires specific treatment in the near wall region.
+ Either the near wall region need to be fully resolved and the simulation are too expensive for high enough Reynolds numbers, or one has
+ to introduce  near wall models which are not natural for unsteady simulations. Designing an accurate LES of wall bounded flows with averse
+ pressure gradient is even more challenging. Our DNS database of a converging-diverging channel flow was designed to suggest an easy and
+ well documented test case to validate LES and RANS models. The sub-grid scale models implemented in our numerical code were tested on the
+  converging-diverging channel flows at two Reynolds numbers. The results are presented in  <a href="#laval2010">  Laval <i>et al</i> (2010)</a>
+and <a href="#kuban2012">  Kuban <i>et al</i> (2012)</a>
+
+
+<div id="tableau">
+<table align="center" border="0" cellpadding="1" cellspacing="10" width="90%">
+	<tr align="center">
+		<td><img src="compare_profiles_Re600_3Models_NX288_NY097_NZ072.ps-Cf-col.png" width="472" height="314" border="0"></td>
+		<td>&nbsp;</td>
+		<td></br><img src="compare_profiles_Re600_WALE_C0.4_3Grids.ps-Cf-col.png" width="472" height="314" border="0"></td>
+	</tr>
+	<tr align="center">
+          <td width ="292">  <font face="Verdana, Geneva, sans-serif" color="black" size="+0"> 
+             Friction coefficients for 3 different models on the same grid  (the upper wall curves are shifted up)
+          </font>  </td>
+	  <td>&nbsp;</td>
+          <td width ="292"> <font face="Verdana, Geneva, sans-serif" color="black" size="+0"> 
+            Friction coefficients for the WALE model on 3 different grids  (the upper wall curves are shifted up)
+          </font> </td>
+	</tr>
+</table>
+</div>
+</br></br>
+
+<h3>
+<p> References
+</h3>
+
+<ul>
+<li> <a name="laval2012"> J.-P. Laval, M. Marquillie and U. Ehrenstein, 2012,On the relation between kinetic energy production in adverse-pressure gradient wall turbulence and streak instability, <i>  J. Turbulence. </i>, 13 (21), 1-19 </li> </br>
+<li> <a name="kuban2012"> L. Kuban, J.-P. Laval, W. Elsnern, Tyliszcak, A. and M. Marquillie, 2012, LES modeling of converging-diverging turbulent channel flow, <i>  J. Turbulence. </i>, 13 (11), 1-19 </li> </br>
+<li> <a name="marquillie2011">  M. Marquillie, U. Ehrenstein and J.-P. Laval, 2011, Instability of streaks in wall turbulence with adverse pressure gradient, <i>  J. Fluid Mech. </i>, 681, 205-240 </li> </br>
+<li> <a name="marquillie2008"> M. Marquillie, J.-P. Laval and R. Dolganov, 2008, Direct Numerical Simulation of separated channel flows with a smooth profile. <i> J. Turbulence </i>, 9, 1-23. </li> </br>
+</ul>
+
+<ul>
+<li> <a name="laval2010">  J.-P. Laval and M.  Marquillie.  Direct Numerical Simulations of converging-diverging channel flow. Progress in wall turbulence : understanding and modelling, Villeneuve d'Ascq, France, April 21-23, Springer ERCOFTAC Series, Edited by M. Stanislas, J. Jimenez and I. Marusic, 2010. </li> </br>
+<li> J.-P. Laval, W. Elsner, L. Kuban and M. Marquillie. LES modeling of Converging Diverging Turbulent Channel Flow. Progress in wall turbulence : understanding and modelling, Villeneuve d'Ascq, France, April 21-23, Springer ERCOFTAC Series, Edited by M. Stanislas, J. Jimenez and I. Marusic, 2010.  </li> </br>
+<li> M. Marquillie,  J.-P. Laval and R. Dolganov, DNS of channel flows with pressure gradient, Advances in Turbulence XI, 11th Euromech European Turbulence Conference, June 25-28, 2007, Porto, Portugal, pp 91-93.   </li> </br>
+<li> J.-P. Laval, DNS LES simulation and supercomputing, High-performance computing of industrial flows. Lecture Series 2009-05, May 5-7, 2009, Edited by J.M. Buchlin, P. Rambaud, Ph. Planquart, von Karman Institute for Fluid Dynamics.   </li> </br>
+<li> J.-P. Laval, M. Marquillie and U. Ehrenstein, Low speed streaks instability of turbulent boundary layer flows with adverse pressure gradient, 19-22 September 2010,  Bertinoro, Italy.   </li> </br>
+</ul>
+
+</div>
+
+</br></br></br>
+<img ALIGN=left src="../email-242-14.png" height=14 width=242></br>
+<a href="../index-2.html"> Return to J.-P. Laval home page</a>
+</br></br>
+
+</body>
+
+<!-- Mirrored from imp-turbulence.ec-lille.fr/Webpage/Laval/Turbulence/dns.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 17 May 2018 14:05:48 GMT -->
+</html>

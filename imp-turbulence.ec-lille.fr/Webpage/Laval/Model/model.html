@@ -1,0 +1,63 @@
+<html>
+
+<!-- Mirrored from imp-turbulence.ec-lille.fr/Webpage/Laval/Model/model.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 17 May 2018 14:05:48 GMT -->
+<head>
+<title>Jean-Philippe Laval - Turbulence Model</title>
+
+<meta Name="Index, Jean-Philippe Laval" Contents="Jean-Philippe Laval, 
+turbulence, Fluid Dynamics, subgrid model, Fluid Mechanics, applied mathematics, LML">
+</head>
+
+
+<h2>
+<p> Turbulence model
+</h2>
+
+<div align="justify">
+<p> In classical turbulence theory, the closure problem arises when considering the statistical or filter average of the forced Navier-Stokes equations: the action of the unresolved scales appear via the Reynolds stresses, which need to be prescribed in order to close the system. Most turbulence models try to close the system by prescribing directly the shape of the Reynolds stresses using, e.g. dimensionnal arguments and arbitrary parameters which need to be calibrated. One class of these models are eddy viscosity models. We have used a novel approach, in which the Reynolds stresses are computed by an estimate of the r.m.s. or subgrid velocities. The estimate is done via a dynamical equation linking the average or resolved velocity and the r.m.s. or subgrid velocities. this equation is derived from the Navier Stokes equations via two approximations. i) the non-linear interactions of the small scale scales between themselves is modeled via a turbulent viscosity. ii) only the non-local interactions between the small scales and the mean large scale flow are exactly taken into account in the equation of small scales. It is thus refered to as a "non-local model" of turbulence. It is in fact a generalization of the Rapid Distorsion Theory (RDT).This new model allows both analytical predictions and numerical implementation.</br></br></br>
+</div>
+
+<table CELLPADDING=5 BORDER=0><tr><td>
+<img ALIGN=left src="model-2d.gif" HEIGHT="400">
+
+</td><td>
+<div align="justify" >
+The model was developed and implemented in a numerical code for 2D isotropic turbulence (see PhD thesis) using a Lagrangian algotithm for the integration of the approximated small scales equation. The model can be used without turbulent viscosity as the non-linear interactions of the small scale scales between themselves are small compare to non-local interactions.
+</div>
+</td></tr>
+<tr><td COLSPAN=2>
+</td></table>
+
+</br></br>
+
+<table CELLPADDING=5 BORDER=0><tr><td>
+<div align="justify">
+The model was adapted for 3D turbulence by replacing the equation for small scale velocity by an equation for the pseudo Lamb vector corresponding to the non-local part of the Reynolds Stress. The local interaction between subgrid scales were modeled by a turbulent viscosity. The resulting RDT-Langevin model was tested for 3D isotropic turbulence (see  <a href="#laval2006"> Laval et al (2006)</a>, Eur. Phys. J. ) is currently beeing implemented in a numerical code for 3D wall bounded flows.</div>
+
+</td><td>
+<img ALIGN=left src="model-3d.gif" HEIGHT="300">
+
+</td></tr>
+<tr><td COLSPAN=2>
+</td></table>
+
+<h3>
+<p> References
+</h3>
+
+
+<li> <a name="laval2006"> J.-P. Laval, B. Dubrulle, 2006, A LES-Langevin model for turbulence.  </i> Eur. Phys. J. B 49, 471-481.</li> </br>
+<li> J.-P. Laval, B. Dubrulle and S. V. Nazarenko, 2004, Fast numerical simulation using a dynamical model for small scale turbulent motions.<i> J. Comp. Phys. </i> 196, 184-207.</li> </br>
+<li> J.-P. Laval, B. Dubrulle et J. C. McWilliams, 2003, Langevin models of turbulence : Renormalization group, distant interaction algorithms or rapid distortion theory ? <i> Phys. Fluids </i> 15, 1327-1339.</li> </br>
+
+
+
+</br>
+<img ALIGN=left src="../email-242-14.png" height=14 width=242></br>
+<a href="../index-2.html"> Return to home page</a>
+</br></br>
+
+</body>
+
+<!-- Mirrored from imp-turbulence.ec-lille.fr/Webpage/Laval/Model/model.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 17 May 2018 14:06:09 GMT -->
+</html>

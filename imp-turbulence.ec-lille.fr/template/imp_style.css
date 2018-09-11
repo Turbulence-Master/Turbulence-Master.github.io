@@ -1,0 +1,136 @@
+/* CSS Document */
+
+a { color: #46574D; border-style:none; background: inherit; }
+
+
+h1 { color: #8a8a8a; font: 2em Verdana, Sans-Serif; padding: 16px 0 0 8px; margin: 0; }
+h2 { color: #8a8a8a; margin: 5 px; padding: 0; font: normal 2em Verdana, Sans-Serif;}
+h3 { color: #8a8a8a; font: normal 1.0 em Verdana, Sans-Serif; margin:5px, 5px, 5px, 0px; padding: 0; background: #FFF; }
+h4 { color: #8a8a8a; font: normal 1.0 em Verdana, Sans-Serif; margin:5px, 5px, 5px, 0px; padding: 0; background: #FFF; }
+p {	color: #666666; margin: 0 0 10px 0; }
+
+a:link {color:#0000FF;}    /* unvisited link */
+a:visited {color:#000FFF;} /* visited link */
+a:hover {color:#FF0000;}   /* mouse over link */
+a:active {color:#0000FF;}  /* selected link */
+
+.content { 
+   	background: #FFF; 
+	margin: 0 auto;
+	padding: 0px;
+	width: 886px;
+	color: #000;
+}
+	.preheader a { color: #fff; background: inherit; text-decoration:none; }
+	.preheader a:hover { color: #fff; background: inherit;}
+
+.sd_left {
+	background-color: #FFF;
+	float: left;
+	color: #000;
+	margin: 0 0 0px 70px;
+	padding: 40px 15px 0px 5px;
+	width: 185px;
+}	
+
+.sd_right {
+	clear: none;
+    background-color: #FFF;
+	color: #000;
+	margin: 0 0px 0 300px;
+	text-align: justify;
+	padding: 30px 0px 0px 5px;
+	width: 500px;
+	border-top: 3px solid #ccc;
+}
+.sd_forum {
+	clear: none;
+    background-color: #FFF;
+	color: #000;
+	margin: 0 0px 0 60px;
+	padding: 30px 0px 0px 5px;
+	text-align: justify;
+	width: 750px;
+	border-top: 3px solid #ccc;
+}
+
+
+.list{
+	list-style-position:outside;
+	list-style-type:circle
+}
+
+.img.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sd_logo {
+	clear: both;
+	float: left;
+	background-color: #FFF;
+	color: #000;
+	margin: 0 0 0px 70px;
+	padding: 40px 0 0 5px; 
+	width: 185px;
+}
+.sd_logo2 {
+	clear: both;
+	float: left;
+	background-color: #FFF;
+	color: #000;
+	margin: 0 0 0px 70px;
+	padding: 50px 0 0 5px; 
+	width: 185px;
+}
+
+
+/* For IE... */
+* html .sd_left {
+	background-color: #FFF;
+	float: left;
+	color: #000;
+	margin: 0 0 0px 40px;
+	padding: 40px 15px 0px 5px;
+	width: 185px;
+}	
+
+*html .sd_logo {
+	clear: both;
+	float: left;
+	background-color: #FFF;
+	color: #000;
+	margin: 0 0 0px 40px;
+	padding: 140px 0 0 5px; 
+	width: 185px;
+}
+
+.text_padding{
+	padding: 0 0 0 0;
+}
+
+
+
+.footer .padding {
+	padding: 40px 0 0 0;
+				
+		}
+.image
+{  border-style: none;
+}
+
+
+img.floatLeft { 
+    float: left; 
+    margin: 8px; 
+}
+
+img.floatRight { 
+    float: right; 
+    margin: 8px; 
+}
+
+textarea{
+	font-family:Arial, Helvetica, sans-serif;
+}
